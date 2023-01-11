@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Text;
 using UnityEditor;
@@ -61,36 +60,6 @@ namespace Kogane
             var directoryName = Path.GetDirectoryName( DIRECTORY_NAME );
             if ( !AssetDatabase.IsValidFolder( directoryName ) ) return;
             AssetDatabase.DeleteAsset( directoryName );
-        }
-
-        //================================================================================
-        // 構造体
-        //================================================================================
-        [Serializable]
-        [SuppressMessage( "ReSharper", "InconsistentNaming" )]
-        [SuppressMessage( "ReSharper", "NotAccessedField.Local" )]
-        private struct JsonBuildPlayerOptions
-        {
-            [SerializeField] private string[] scenes;
-            [SerializeField] private string   locationPathName;
-            [SerializeField] private string   assetBundleManifestPath;
-            [SerializeField] private string   targetGroup;
-            [SerializeField] private string   target;
-            [SerializeField] private string   subtarget;
-            [SerializeField] private string   options;
-            [SerializeField] private string[] extraScriptingDefines;
-
-            public JsonBuildPlayerOptions( BuildPlayerOptions value )
-            {
-                scenes                  = value.scenes;
-                locationPathName        = value.locationPathName;
-                assetBundleManifestPath = value.assetBundleManifestPath;
-                targetGroup             = value.targetGroup.ToString();
-                target                  = value.target.ToString();
-                subtarget               = value.subtarget.ToString();
-                options                 = value.options.ToString();
-                extraScriptingDefines   = value.extraScriptingDefines;
-            }
         }
     }
 }
